@@ -300,3 +300,14 @@ Steps:
 2. Scale range [0:1000] to [0:3]
 3. Increase range by `1` to have the range of [1:4]
 4. Assign LC#2 to VTX power function
+
+### Do photo at waypoint
+Photo trigger channel at CH11, duration 3.2s (allows to wake up and focus), both can be adjusted, also can be triggered manually. Programming tab: 
+![inav_pt1](https://user-images.githubusercontent.com/8989151/218525881-4774a6a1-d95a-43de-8ba4-5d69eabc0700.jpg)
+Mixer tab (output is still 1000/2000):
+![inav_pt2](https://user-images.githubusercontent.com/8989151/218525876-477f1925-27d9-4ee6-974a-55f7b34c8593.jpg)
+Will trigger once, at beginning. If you want trigger on entire waypoint duration (for example - take video for that sector) - change "EDGE" to "STICKY" using both identical operands.
+The same in CLI:
+logic 0 1 -1 47 7 6 0 3200 
+smix 4 3 29 200 0 0
+smix 5 3 17 100 0 -1
